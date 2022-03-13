@@ -1,0 +1,860 @@
+<sdf version='1.7'>
+  <world name='default'>
+    <light name='sun' type='directional'>
+      <cast_shadows>1</cast_shadows>
+      <pose>0 0 10 0 -0 0</pose>
+      <diffuse>0.8 0.8 0.8 1</diffuse>
+      <specular>0.2 0.2 0.2 1</specular>
+      <attenuation>
+        <range>1000</range>
+        <constant>0.9</constant>
+        <linear>0.01</linear>
+        <quadratic>0.001</quadratic>
+      </attenuation>
+      <direction>-0.5 0.1 -0.9</direction>
+      <spot>
+        <inner_angle>0</inner_angle>
+        <outer_angle>0</outer_angle>
+        <falloff>0</falloff>
+      </spot>
+    </light>
+    <plugin name='gazebo_ros_state' filename='libgazebo_ros_state.so'>
+      <update_rate>1.0</update_rate>
+    </plugin>
+    <model name='ground_plane'>
+      <static>1</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>100 100</size>
+            </plane>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>100</mu>
+                <mu2>50</mu2>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='visual'>
+          <cast_shadows>0</cast_shadows>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>100 100</size>
+            </plane>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Grey</name>
+            </script>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+    <gravity>0 0 -9.8</gravity>
+    <magnetic_field>6e-06 2.3e-05 -4.2e-05</magnetic_field>
+    <atmosphere type='adiabatic'/>
+    <physics type='ode'>
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1</real_time_factor>
+      <real_time_update_rate>1000</real_time_update_rate>
+    </physics>
+    <scene>
+      <ambient>0.4 0.4 0.4 1</ambient>
+      <background>0.7 0.7 0.7 1</background>
+      <shadows>1</shadows>
+    </scene>
+    <wind/>
+    <spherical_coordinates>
+      <surface_model>EARTH_WGS84</surface_model>
+      <latitude_deg>0</latitude_deg>
+      <longitude_deg>0</longitude_deg>
+      <elevation>0</elevation>
+      <heading_deg>0</heading_deg>
+    </spherical_coordinates>
+    <state world_name='default'>
+      <sim_time>84 967000000</sim_time>
+      <real_time>40 353475636</real_time>
+      <wall_time>1647178340 291639151</wall_time>
+      <iterations>38167</iterations>
+      <model name='ground_plane'>
+        <pose>0 0 0 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>0 0 0 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='rasmt'>
+        <pose>0 0 0 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='rasmt_Base_Link'>
+          <pose>0 0 0 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+        <link name='rasmt_Dock_Link'>
+          <pose>0.3135 0 0.84182 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 -0 0 0 -0 0</acceleration>
+          <wrench>0 -0 0 0 -0 0</wrench>
+        </link>
+        <link name='rasmt_Fork_1'>
+          <pose>0 0 0.2533 3.14159 -0 0</pose>
+          <velocity>-0 -0 -0 0 -0 0</velocity>
+          <acceleration>-0 0 -0 0 -0 0</acceleration>
+          <wrench>-0 0 -0 0 -0 0</wrench>
+        </link>
+        <link name='rasmt_Fork_2'>
+          <pose>0.1045 0 0.50782 0 -0 0</pose>
+          <velocity>-0 -0 -0 0 -0 0</velocity>
+          <acceleration>-0 0 -0 0 -0 0</acceleration>
+          <wrench>-0 0 -0 0 -0 0</wrench>
+        </link>
+        <link name='rasmt_Fork_3'>
+          <pose>0.209 0 0.76232 0 -0 0</pose>
+          <velocity>0 -0 0 0 -0 0</velocity>
+          <acceleration>0 -0 -0 0 -0 0</acceleration>
+          <wrench>0 -0 -0 0 -0 0</wrench>
+        </link>
+        <link name='rasmt_Grip_L'>
+          <pose>0.3135 0 1.05811 7e-06 -0 1.5708</pose>
+          <velocity>-0 0 0 0 -0 0</velocity>
+          <acceleration>-0 -0 -0 0 -0 0</acceleration>
+          <wrench>-0 -0 -0 0 -0 0</wrench>
+        </link>
+        <link name='rasmt_Grip_R'>
+          <pose>0.3135 0 1.05811 7e-06 -0 -1.5708</pose>
+          <velocity>-0 -0 0 0 -0 0</velocity>
+          <acceleration>-0 0 -0 0 -0 0</acceleration>
+          <wrench>-0 0 -0 0 -0 0</wrench>
+        </link>
+        <link name='rasmt_Link_1'>
+          <pose>0.1045 0 0.3328 0 -0 0</pose>
+          <velocity>-0 0 -0 0 -0 0</velocity>
+          <acceleration>-0 0 -0 0 -0 0</acceleration>
+          <wrench>-0 0 -0 0 -0 0</wrench>
+        </link>
+        <link name='rasmt_Link_2'>
+          <pose>0.209 0 0.58732 0 -0 0</pose>
+          <velocity>-0 -0 -0 0 -0 0</velocity>
+          <acceleration>-0 0 -0 0 -0 0</acceleration>
+          <wrench>-0 0 -0 0 -0 0</wrench>
+        </link>
+      </model>
+      <light name='sun'>
+        <pose>0 0 10 0 -0 0</pose>
+      </light>
+    </state>
+    <gui fullscreen='0'>
+      <camera name='user_camera'>
+        <pose>3.00654 -2.71924 2.18417 0 0.383643 2.2642</pose>
+        <view_controller>orbit</view_controller>
+        <projection_type>perspective</projection_type>
+      </camera>
+    </gui>
+    <model name='rasmt'>
+      <joint name='to_world' type='fixed'>
+        <pose relative_to='__model__'>0 0 0 0 -0 0</pose>
+        <parent>world</parent>
+        <child>rasmt_Base_Link</child>
+      </joint>
+      <link name='rasmt_Base_Link'>
+        <pose relative_to='to_world'>0 0 0 0 -0 0</pose>
+        <inertial>
+          <pose>-0.003065 -3.3e-05 0.082353 0 -0 0</pose>
+          <mass>5.2929</mass>
+          <inertia>
+            <ixx>0.0076169</ixx>
+            <ixy>1.0121e-05</ixy>
+            <ixz>-0.00010622</ixz>
+            <iyy>0.0076597</iyy>
+            <iyz>6.5117e-05</iyz>
+            <izz>0.01165</izz>
+          </inertia>
+        </inertial>
+        <collision name='rasmt_Base_Link_collision'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>model://rasmt_support/meshes/collision/Base_Link.STL</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode>
+                <mu>0.2</mu>
+                <mu2>0.2</mu2>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='rasmt_Base_Link_visual'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>model://rasmt_support/meshes/visual/Base_Link.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <gravity>0</gravity>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='rasmt_Rot_Z_1' type='revolute'>
+        <pose relative_to='rasmt_Base_Link'>0 0 0.2533 3.14159 -0 0</pose>
+        <parent>rasmt_Base_Link</parent>
+        <child>rasmt_Fork_1</child>
+        <axis>
+          <xyz>0 0 1</xyz>
+          <limit>
+            <lower>-3.1416</lower>
+            <upper>3.1416</upper>
+            <effort>5.149</effort>
+            <velocity>0.99903</velocity>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+        </axis>
+      </joint>
+      <link name='rasmt_Fork_1'>
+        <pose relative_to='rasmt_Rot_Z_1'>0 0 0 0 -0 0</pose>
+        <inertial>
+          <pose>0.043764 -0.006698 -0.032285 0 -0 0</pose>
+          <mass>0.67797</mass>
+          <inertia>
+            <ixx>0.0014091</ixx>
+            <ixy>-6.2674e-05</ixy>
+            <ixz>0.00057897</ixz>
+            <iyy>0.0017329</iyy>
+            <iyz>4.7826e-05</iyz>
+            <izz>0.0019056</izz>
+          </inertia>
+        </inertial>
+        <collision name='rasmt_Fork_1_collision'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>model://rasmt_support/meshes/collision/Fork_1.STL</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode>
+                <mu>0.2</mu>
+                <mu2>0.2</mu2>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='rasmt_Fork_1_visual'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>model://rasmt_support/meshes/visual/Fork_1.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <gravity>0</gravity>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='rasmt_Rot_Y_1' type='revolute'>
+        <pose relative_to='rasmt_Fork_1'>0.1045 0 -0.0795 -3.14159 0 0</pose>
+        <parent>rasmt_Fork_1</parent>
+        <child>rasmt_Link_1</child>
+        <axis>
+          <xyz>0 1 0</xyz>
+          <limit>
+            <lower>-1.5707</lower>
+            <upper>2.2863</upper>
+            <effort>5.149</effort>
+            <velocity>0.99903</velocity>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+        </axis>
+      </joint>
+      <link name='rasmt_Link_1'>
+        <pose relative_to='rasmt_Rot_Y_1'>0 0 0 0 -0 0</pose>
+        <inertial>
+          <pose>-0.000423 0 0.075171 0 -0 0</pose>
+          <mass>1.8959</mass>
+          <inertia>
+            <ixx>0.0029317</ixx>
+            <ixy>-9.417e-06</ixy>
+            <ixz>5.5248e-05</ixz>
+            <iyy>0.0031666</iyy>
+            <iyz>-9.3067e-05</iyz>
+            <izz>0.0015477</izz>
+          </inertia>
+        </inertial>
+        <collision name='rasmt_Link_1_collision'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>model://rasmt_support/meshes/collision/Link_1.STL</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode>
+                <mu>0.2</mu>
+                <mu2>0.2</mu2>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='rasmt_Link_1_visual'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>model://rasmt_support/meshes/visual/Link_1.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <gravity>0</gravity>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='rasmt_Rot_Z_2' type='revolute'>
+        <pose relative_to='rasmt_Link_1'>0 0 0.17502 0 -0 0</pose>
+        <parent>rasmt_Link_1</parent>
+        <child>rasmt_Fork_2</child>
+        <axis>
+          <xyz>0 0 1</xyz>
+          <limit>
+            <lower>-3.1416</lower>
+            <upper>3.1416</upper>
+            <effort>5.149</effort>
+            <velocity>0.99903</velocity>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+        </axis>
+      </joint>
+      <link name='rasmt_Fork_2'>
+        <pose relative_to='rasmt_Rot_Z_2'>0 0 0 0 -0 0</pose>
+        <inertial>
+          <pose>0.043764 0.006698 0.032285 0 -0 0</pose>
+          <mass>0.67797</mass>
+          <inertia>
+            <ixx>0.0014091</ixx>
+            <ixy>6.2674e-05</ixy>
+            <ixz>-0.00057897</ixz>
+            <iyy>0.0017329</iyy>
+            <iyz>4.7826e-05</iyz>
+            <izz>0.0019056</izz>
+          </inertia>
+        </inertial>
+        <collision name='rasmt_Fork_2_collision'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>model://rasmt_support/meshes/collision/Fork_2.STL</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode>
+                <mu>0.2</mu>
+                <mu2>0.2</mu2>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='rasmt_Fork_2_visual'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>model://rasmt_support/meshes/visual/Fork_2.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <gravity>0</gravity>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='rasmt_Rot_Y_2' type='revolute'>
+        <pose relative_to='rasmt_Fork_2'>0.1045 0 0.0795 0 -0 0</pose>
+        <parent>rasmt_Fork_2</parent>
+        <child>rasmt_Link_2</child>
+        <axis>
+          <xyz>0 1 0</xyz>
+          <limit>
+            <lower>-1.5707</lower>
+            <upper>2.2863</upper>
+            <effort>5.149</effort>
+            <velocity>0.99903</velocity>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+        </axis>
+      </joint>
+      <link name='rasmt_Link_2'>
+        <pose relative_to='rasmt_Rot_Y_2'>0 0 0 0 -0 0</pose>
+        <inertial>
+          <pose>-0.000423 0 0.075171 0 -0 0</pose>
+          <mass>1.8959</mass>
+          <inertia>
+            <ixx>0.0029317</ixx>
+            <ixy>-9.4171e-06</ixy>
+            <ixz>5.5248e-05</ixz>
+            <iyy>0.0031666</iyy>
+            <iyz>-9.3067e-05</iyz>
+            <izz>0.0015477</izz>
+          </inertia>
+        </inertial>
+        <collision name='rasmt_Link_2_collision'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>model://rasmt_support/meshes/collision/Link_2.STL</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode>
+                <mu>0.2</mu>
+                <mu2>0.2</mu2>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='rasmt_Link_2_visual'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>model://rasmt_support/meshes/visual/Link_2.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <gravity>0</gravity>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='rasmt_Rot_Z_3' type='revolute'>
+        <pose relative_to='rasmt_Link_2'>0 0 0.175 0 -0 0</pose>
+        <parent>rasmt_Link_2</parent>
+        <child>rasmt_Fork_3</child>
+        <axis>
+          <xyz>0 0 1</xyz>
+          <limit>
+            <lower>-3.14159</lower>
+            <upper>3.14159</upper>
+            <effort>5.149</effort>
+            <velocity>0.99903</velocity>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+        </axis>
+      </joint>
+      <link name='rasmt_Fork_3'>
+        <pose relative_to='rasmt_Rot_Z_3'>0 0 0 0 -0 0</pose>
+        <inertial>
+          <pose>0.043764 0.006698 0.032285 0 -0 0</pose>
+          <mass>0.677973</mass>
+          <inertia>
+            <ixx>0.00140909</ixx>
+            <ixy>6.26743e-05</ixy>
+            <ixz>-0.00057897</ixz>
+            <iyy>0.00173285</iyy>
+            <iyz>4.78263e-05</iyz>
+            <izz>0.00190562</izz>
+          </inertia>
+        </inertial>
+        <collision name='rasmt_Fork_3_collision'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>model://rasmt_support/meshes/collision/Fork_3.STL</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode>
+                <mu>0.2</mu>
+                <mu2>0.2</mu2>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='rasmt_Fork_3_visual'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>model://rasmt_support/meshes/visual/Fork_3.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <gravity>0</gravity>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='rasmt_Rot_Y_4' type='revolute'>
+        <pose relative_to='rasmt_Fork_3'>0.1045 0 0.0795 0 -0 0</pose>
+        <parent>rasmt_Fork_3</parent>
+        <child>rasmt_Dock_Link</child>
+        <axis>
+          <xyz>0 1 0</xyz>
+          <limit>
+            <lower>-1.5707</lower>
+            <upper>2.2863</upper>
+            <effort>5.149</effort>
+            <velocity>0.99903</velocity>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+        </axis>
+      </joint>
+      <link name='rasmt_Dock_Link'>
+        <pose relative_to='rasmt_Rot_Y_4'>0 0 0 0 -0 0</pose>
+        <inertial>
+          <pose>0.000487 0.000152 0.082546 0 -0 0</pose>
+          <mass>2.53392</mass>
+          <inertia>
+            <ixx>0.00606451</ixx>
+            <ixy>-2.01536e-06</ixy>
+            <ixz>-7.2941e-05</ixz>
+            <iyy>0.00609483</iyy>
+            <iyz>-0.000124635</iyz>
+            <izz>0.00206901</izz>
+          </inertia>
+        </inertial>
+        <collision name='rasmt_Dock_Link_collision'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>model://rasmt_support/meshes/collision/Dock_Link.STL</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode>
+                <mu>0.2</mu>
+                <mu2>0.2</mu2>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <collision name='rasmt_Dock_Link_fixed_joint_lump__rasmt_Grip_Body_collision_1'>
+          <pose>0 0 0.12324 -3.14159 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>model://rasmt_support/meshes/collision/Grip_Body.STL</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode>
+                <mu>0.2</mu>
+                <mu2>0.2</mu2>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='rasmt_Dock_Link_visual'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>model://rasmt_support/meshes/visual/Dock_Link.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='rasmt_Dock_Link_fixed_joint_lump__rasmt_Grip_Body_visual_1'>
+          <pose>0 0 0.12324 -3.14159 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>model://rasmt_support/meshes/visual/Grip_Body.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <gravity>0</gravity>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='rasmt_Slide_1' type='prismatic'>
+        <pose relative_to='rasmt_Dock_Link'>0 -0 0.21629 7e-06 -0 1.5708</pose>
+        <parent>rasmt_Dock_Link</parent>
+        <child>rasmt_Grip_L</child>
+        <axis>
+          <xyz>1 0 0</xyz>
+          <limit>
+            <lower>0</lower>
+            <upper>0.06</upper>
+            <effort>20</effort>
+            <velocity>0.2</velocity>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+        </axis>
+      </joint>
+      <link name='rasmt_Grip_L'>
+        <pose relative_to='rasmt_Slide_1'>0 0 0 0 -0 0</pose>
+        <inertial>
+          <pose>-0.010118 0.010281 -0.003825 0 -0 0</pose>
+          <mass>0.021223</mass>
+          <inertia>
+            <ixx>6.5436e-06</ixx>
+            <ixy>-3.114e-06</ixy>
+            <ixz>2.8479e-06</ixz>
+            <iyy>1.9726e-05</iyy>
+            <iyz>1.6432e-06</iyz>
+            <izz>1.6355e-05</izz>
+          </inertia>
+        </inertial>
+        <collision name='rasmt_Grip_L_collision'>
+          <pose>-0.02 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>model://rasmt_support/meshes/collision/Grip_L.STL</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode>
+                <mu>1000</mu>
+                <mu2>1000</mu2>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='rasmt_Grip_L_visual'>
+          <pose>-0.02 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>model://rasmt_support/meshes/visual/Grip_L.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <gravity>0</gravity>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='rasmt_Slide_2' type='prismatic'>
+        <pose relative_to='rasmt_Dock_Link'>0 -0 0.21629 7e-06 -0 -1.5708</pose>
+        <parent>rasmt_Dock_Link</parent>
+        <child>rasmt_Grip_R</child>
+        <axis>
+          <xyz>1 0 0</xyz>
+          <limit>
+            <lower>0</lower>
+            <upper>0.06</upper>
+            <effort>20</effort>
+            <velocity>0.2</velocity>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+        </axis>
+      </joint>
+      <link name='rasmt_Grip_R'>
+        <pose relative_to='rasmt_Slide_2'>0 0 0 0 -0 0</pose>
+        <inertial>
+          <pose>-0.010118 0.010281 -0.003825 0 -0 0</pose>
+          <mass>0.021223</mass>
+          <inertia>
+            <ixx>6.5436e-06</ixx>
+            <ixy>-3.114e-06</ixy>
+            <ixz>2.8479e-06</ixz>
+            <iyy>1.9726e-05</iyy>
+            <iyz>1.6432e-06</iyz>
+            <izz>1.6355e-05</izz>
+          </inertia>
+        </inertial>
+        <collision name='rasmt_Grip_R_collision'>
+          <pose>-0.02 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>model://rasmt_support/meshes/collision/Grip_R.STL</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode>
+                <mu>1000</mu>
+                <mu2>1000</mu2>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='rasmt_Grip_R_visual'>
+          <pose>-0.02 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>model://rasmt_support/meshes/visual/Grip_R.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <gravity>0</gravity>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <plugin name='gazebo_ros2_control' filename='libgazebo_ros2_control.so'>
+        <parameters>/home/bill-finger/rasms_ws/install/share/rasmt_support/config/rasmt_ros2_controllers.yaml</parameters>
+        <robotNamespace>/rasmt</robotNamespace>
+      </plugin>
+      <static>0</static>
+      <plugin name='gazebo_grasp_fix' filename='/home/bill-finger/gazebo_pkgs_ws/build/gazebo_grasp_plugin/libgazebo_grasp_fix.so'>
+        <arm>
+          <arm_name>rasmt</arm_name>
+          <palm_link>rasmt_Dock_Link</palm_link>
+          <gripper_link>rasmt_Grip_L</gripper_link>
+          <gripper_link>rasmt_Grip_R</gripper_link>
+        </arm>
+        <forces_angle_tolerance>100</forces_angle_tolerance>
+        <update_rate>4</update_rate>
+        <grip_count_threshold>4</grip_count_threshold>
+        <max_grip_count>8</max_grip_count>
+        <release_tolerance>0.005</release_tolerance>
+        <disable_collisions_on_attach>0</disable_collisions_on_attach>
+        <contact_topic>__default_topic__</contact_topic>
+      </plugin>
+      <pose>0 0 0 0 -0 0</pose>
+    </model>
+  </world>
+</sdf>
